@@ -25,33 +25,33 @@ public class GetPayInfoSchedule {
         this.taskExecutor = taskExecutor;
     }
 
-    @Scheduled(fixedRate = 500)
-    public void getPayInfo() {
-        Random random = new Random();
-        int size = random.nextInt(1000);
-        if (size > 5000) {
-            size = 500;
-        }
-        for (int i = 0; i < 10000; i++) {
-            taskExecutor.execute(() -> {
-                try {
-
-//                    log.info(LocalDateTime.now());
-//                String url = "http://localhost:8081/getPayInfo?str=" + taskExecutor.getThreadNamePrefix();
-//                String result = HttpUtil.createGet(url)
-//                        .timeout(5000) // 设置超时时间为5000毫秒（5秒）
-//                        .execute()
-//                        .body();
-                    Byte[] bytes=new Byte[1024*1024*100];
-                    System.out.println(bytes);
-                    String result = HttpUtil.get("http://localhost:8081/getPayInfo?str=" + taskExecutor.getThreadNamePrefix());
-                    System.out.println(result + "获取成功");
-                } catch (HttpException e){
-                    log.error(e.getMessage());
-                    log.error(LocalDateTime.now());
-                }
-            });
-
-        }
-    }
+//    @Scheduled(fixedRate = 500)
+//    public void getPayInfo() {
+//        Random random = new Random();
+//        int size = random.nextInt(1000);
+//        if (size > 5000) {
+//            size = 500;
+//        }
+//        for (int i = 0; i < 10000; i++) {
+//            taskExecutor.execute(() -> {
+//                try {
+//
+////                    log.info(LocalDateTime.now());
+////                String url = "http://localhost:8081/getPayInfo?str=" + taskExecutor.getThreadNamePrefix();
+////                String result = HttpUtil.createGet(url)
+////                        .timeout(5000) // 设置超时时间为5000毫秒（5秒）
+////                        .execute()
+////                        .body();
+//                    Byte[] bytes=new Byte[1024*1024*100];
+//                    System.out.println(bytes);
+//                    String result = HttpUtil.get("http://localhost:8081/getPayInfo?str=" + taskExecutor.getThreadNamePrefix());
+//                    System.out.println(result + "获取成功");
+//                } catch (HttpException e){
+//                    log.error(e.getMessage());
+//                    log.error(LocalDateTime.now());
+//                }
+//            });
+//
+//        }
+//    }
 }

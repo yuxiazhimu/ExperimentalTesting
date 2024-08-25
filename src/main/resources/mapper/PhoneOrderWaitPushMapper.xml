@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sfs.experimentaltesting.dao.mapper.PhoneOrderWaitPushMapper">
+
+    <insert id="saveBatch">
+        INSERT INTO phone_order_wait_push_new ( classify_name,upstream_user_id, shop_user_id,
+                                           upstream_order_no, platform_order_no,shop_order_no
+                                           )
+        values
+            <foreach collection="phoneOrderWaitPushes" index="index" separator="," item="cp">
+            (#{cp.classifyName},#{cp.upstreamUserId},#{cp.shopUserId},#{cp.upstreamOrderNo},#{cp.platformOrderNo},#{cp.shopOrderNo})
+            </foreach>
+        ;
+    </insert>
+    <select id="selectBatchOfIn" resultType="java.lang.Long">
+        select id from phone_order_wait_push_new where id in
+        <foreach collection="ids" item="item" index="index"  open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>
