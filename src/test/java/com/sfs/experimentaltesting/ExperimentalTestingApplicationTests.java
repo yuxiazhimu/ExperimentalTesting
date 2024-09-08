@@ -1,16 +1,20 @@
 package com.sfs.experimentaltesting;
 
 import cn.hutool.core.util.IdUtil;
+import com.sfs.experimentaltesting.config.ThreadPoolConfig;
 import com.sfs.experimentaltesting.dao.mapper.PhoneOrderWaitPushMapper;
 import com.sfs.experimentaltesting.domin.phoneBill.PhoneOrderWaitPushNew;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import static jodd.util.ThreadUtil.sleep;
 
@@ -66,6 +70,19 @@ class ExperimentalTestingApplicationTests {
         }
 
     }
+
+
+
+//    @Resource
+//    ThreadPoolTaskExecutor myTaskExecutor;
+//    @Test
+//    public void jj(){
+//
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor();
+//        Callable
+//
+//    }
+
 
 
 }
