@@ -2,6 +2,7 @@ package com.sfs.experimentaltesting.schedue;
 
 import cn.hutool.http.HttpException;
 import cn.hutool.http.HttpUtil;
+import com.sfs.experimentaltesting.domin.IntOrInteger;
 import com.sfs.experimentaltesting.domin.listener.MyEvent;
 import com.sfs.experimentaltesting.domin.listener.MyOrder;
 import lombok.extern.log4j.Log4j2;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.Callable;
 
 import static jodd.util.ThreadUtil.sleep;
 
@@ -73,23 +75,24 @@ public class GetPayInfoSchedule {
 //        MyEvent myEvent = new MyEvent(this, myOrder);
 //        applicationEventPublisher.publishEvent(myEvent);
 //    }
-    public boolean flag = false;
-    @Resource
-    ThreadPoolTaskExecutor myTaskExecutor;
 
-    @Scheduled(fixedRate = 500)
-    public void t1() {
-        myTaskExecutor.execute(()->{
-            System.out.println(System.currentTimeMillis() + "t2");
-            sleep(4000);
-        });
-    }
+//    @Resource
+//    ThreadPoolTaskExecutor myTaskExecutor;
 
-    @Scheduled(fixedRate = 500)
-    public void t2() {
-        System.out.println(System.currentTimeMillis() + "t2");
-        sleep(4000);
-    }
+//    @Scheduled(fixedRate = 500)
+//    public void t1() {
+////        int i=new Integer(2);
+//        Integer i=2;
+//        Integer b=2;
+//        System.out.println(i==b);
+//    }
+
+
+//    @Scheduled(fixedRate = 500)
+//    public void t2() {
+//        System.out.println(System.currentTimeMillis() + "t2");
+//        sleep(4000);
+//    }
 
 
 }
